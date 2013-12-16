@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html>
+<head>
+<title>抽奖</title>
+</head>
+<style type="text/css">
+  html{overflow-y:hidden;}
+  body{background: url(/static/image/bg.png) repeat-x;background-color: #432B57 !important; }
+</style>
+<body>
+  <div id="marquee"><marquee scrollamount="5">拿出你的手机，打开你的微信，扫一扫二维码，输入你心仪团队的展位号[例如：A1]，即可参加抽奖活动。</marquee></div>
+  <div id="randMainContent">
+    <div id="rankingName">点击按钮开始抽奖</div>
+    <button id="start">开始抽奖</button>
+    <button id="stop">停止抽奖</button>
+    <ul id="luckyList">
+      <?php
+        if(is_array($luckyList)):
+          $i = 1;
+          foreach ($luckyList as $item) :
+      ?>
+          <li><span class="list"><?=$i ?></span><?=$item['weixinName'] ?></li>
+      <?php
+          $i++;
+          endforeach;
+        endif;
+      ?>
+    </ul>
+  </div>
+<?php @include_once( dirname(__FILE__) ) . DS . 'footer.tpl.html'; ?>
+<script type="text/javascript">
+    var _gogo;
+    var start_btn = $("#start");
+    var stop_btn = $("#stop");
+    start_btn.click(function(){
+        $("#rankingName").html("启动中.....");
+        $.getJSON('/?c=default&a=user_list',function(json){
+              if(json){
+                  var len = json.length;
+                  _gogo = setInterval(function(){
+                      var num = Math.floor(Math.random()*len);
+                      var weixinName = json[num];
+                      $("#rankingName").html(weixinName);
+                  },10);
+                  stop_btn.show();
+                  start_btn.hide();
+              }else{
+                  $("#rankingName").html('系统找不到数据源，请先导入数据。');
+              }
+            });
+    });
+
+    stop_btn.click(function(){
+          clearInterval(_gogo);
+          $("#rankingName").html("正在抽奖中");
+          $.getJSON("/?c=default&a=rand_api",function(data){
+            console.log(data);
+            if(data != null){
+               $("#rankingName").html(data);
+               $("#luckyList").prepend("<li><span class='new-list'>New</span>"+data+"</li>");
+            }else{
+              $("#rankingName").html("点击按钮开始抽奖");
+              //alert("拥有抽奖资格的观众似乎已经被抽完或还没有哦！")
+            }
+            stop_btn.hide();
+            start_btn.show();
+          });
+    });
+</script>
+</body>
+</html>

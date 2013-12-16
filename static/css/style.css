@@ -1,0 +1,231 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,button,textarea,blockquote{margin:0;padding:0;}
+fieldset,img{border:0;}
+ol,ul{list-style:none;}
+header,section,footer,nav{display:block}
+button{outline: 0; border: 0; cursor: pointer;}
+html{overflow-x:hidden;}
+body{font:12px/1.5 "Microsoft YaHei",Arial,tahoma;background-color:#fafafa;}
+::selection{background: rgba(0,0,0,0);}
+.graph {
+  margin-bottom: 50px;
+  margin-top: 30px;
+  clear: both;
+  font-size: 14px;
+}
+
+.graph .label {
+  text-align: center;
+  padding-bottom: 5px;
+  margin-top: -25px;
+}
+.graph-header h3 {
+  margin-bottom: 0px;
+}
+.graph-header {
+  text-align: center;
+}
+.graph-header p {
+  margin-top: 0px;
+}
+
+.graph .legend td, .graph .legend, .graph .legend tr {
+  padding: 0px;
+  margin: 0px;
+  border-collapse:collapse;
+}
+
+.graph .legend {
+  margin-left: 10px;
+}
+.graph .legend td {
+  padding-right: 5px;
+}
+
+.graph .legend .color-box {
+  width: 14px;
+  height: 10px;
+  overflow: hidden;
+}
+.bar-label{
+  font-size: 20px;
+  color: #ecf0f1;
+  border-radius: 3px;
+}
+.axis-label{
+  color: #ecf0f1;
+  font-size: 17px;
+}
+.axis-label span{
+  padding: 3px 17px;
+  background-color: #3498db;
+  border-radius: 100px;
+  cursor: default;
+}
+.float-content{
+  width: 120px;
+  height: 220px;
+  background: #fff;
+  position: fixed;
+  top: 280px;
+  z-index: 1001;
+  box-shadow: 0 2px 3px rgba(0,0,0,.25);
+  border-radius: 3px;
+}
+.float-content p{
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+.float-content img{
+  margin-top: 10px;
+}
+#static-properties-graph{
+  background: url(../image/bg_tongji.jpg) no-repeat center;
+}
+#showMainContent{
+  width: 1024px;
+  margin: 0 auto;
+  position: relative;
+}
+#showMainContent .refresh{
+  padding: 5px 10px;
+  color: #fff;
+  background: #f39c12;
+  border-radius: 10px;
+  left: 30px;
+  position: absolute;
+  top: 580px;
+  font-size: 18px;
+  cursor: pointer;
+}
+#showMainContent .refresh:active{
+  background: #e67e22;
+}
+#showMainContent .copyright{
+  font-size: 12px;
+  color: #95a5a6;
+  right: 168px;
+  position: absolute;
+  top: 585px;
+}
+#showMainContent .default-title{
+  font-size: 23px;
+  position: absolute;
+  top: 575px;
+  left: 330px;
+  color: #fff;
+}
+#showMainContent .search-name{
+  font-size: 18px;
+  position: absolute;
+  top: 620px;
+  left: 280px;
+  color: #fff;
+}
+#marquee{
+  width: 100%;
+  height: 30px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  line-height: 30px;
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  z-index: 1002;
+}
+#randMainContent{
+  width: 600px;
+  height: 1000px;
+  background: url(../image/main1.png) center 50px no-repeat;
+  margin: 0 auto;
+  position: relative;
+}
+
+#randMainContent .copyright{
+  font-size: 12px;
+  color: #927E8E;
+  right: 222px;
+  position: absolute;
+  top: 740px;
+}
+#rankingName{
+  width: 385px;
+  height: 85px;
+  line-height: 85px;
+  color: #717D90;
+  font-size: 30px;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  top: 232px;
+  left: 107px;
+}
+#start{
+  width: 206px;
+  height: 73px;
+  background: url(../image/button.png) center no-repeat;
+  text-indent: -9999px;
+  position: absolute;
+  top: 350px;
+  left: 200px;
+}
+#start:active{
+  background-image: url(../image/button_press.png);
+}
+#stop{
+  width: 206px;
+  height: 73px;
+  background: url(../image/button_stop.png) center no-repeat;
+  text-indent: -9999px;
+  position: absolute;
+  top: 350px;
+  left: 200px;
+  display: none;
+}
+#stop:active{
+  background-image: url(../image/button_stop_press.png);
+}
+#luckyList{
+  width: 320px;
+  height: 210px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 510px;
+  left: 140px;
+}
+#luckyList li{
+  height: 35px;
+  border-bottom:1px dashed #cfcfcf;
+  color: #807771;
+  font-size: 18px;
+  line-height: 35px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+#luckyList li .list{
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background: #58ABC0;
+  border-radius: 15px;
+  text-align: center;
+  margin-right: 12px;
+  margin-left: 7px;
+  color: #fff;
+  display: inline-block;
+}
+#luckyList li .new-list{
+  width: 50px;
+  height: 16px;
+  font-size: 12px;
+  background: #CA4343;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 7px;
+  margin-right: 5px;
+}

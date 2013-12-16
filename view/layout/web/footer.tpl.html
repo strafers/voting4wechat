@@ -1,0 +1,8 @@
+    <?php if( isset($css) && is_array( $css ) ): ?>
+        <?php foreach( $css as $cfile ): ?><link rel="stylesheet" type="text/css" href="/static/css/<?=$cfile?>"/>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php if( isset($js) && is_array( $js ) ): ?>
+        <?php foreach( $js as $jfile ): ?><script type="text/javascript" src="/static/script/<?=$jfile;?>" ></script>
+        <?php endforeach; ?>
+    <?php endif; ?>

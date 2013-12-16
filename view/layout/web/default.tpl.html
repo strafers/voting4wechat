@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html>
+<head>
+<title>排行榜</title>
+</head>
+<style type="text/css">
+  body{
+    background-color: #2c3e50 !important;
+  }
+</style>
+<body>
+<div id="marquee"><marquee scrollamount="5">拿出你的手机，打开你的微信，扫一扫二维码，输入你心仪团队的展位号[例如：A1]</marquee></div>
+<div id="showMainContent">
+  <div id='static-properties-graph' class='graph' style='margin:0 auto;margin-top:100px;width:700px; height: 500px'></div>
+  <div class="default-title">创业团队得票排行榜 TOP 10</div>
+</div>
+
+<?php @include_once( dirname(__FILE__) ) . DS . 'footer.tpl.html'; ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        commonTestData = [
+                  <?php foreach ($showData as $item) :?>
+                  [<?=$item['voteCount'] ?>, {label: '<span title=<?=$item['company'] ?>><?=$item['workId'] ?></span>',count:'<?=$item['voteCount'] ?>'}],
+                  <?php endforeach;?>
+                ];
+        $('#static-properties-graph').tufteBar({
+          data: commonTestData,
+          barWidth: 0.7,
+          barLabel:  function(i) { return this[1].count },
+          axisLabel: function(i) { return this[1].label },
+          color:     '#1abc9c'
+        });
+    });
+</script>
+</body>
+</html>
