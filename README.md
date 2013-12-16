@@ -1,4 +1,4 @@
-微信公众平台投票抽奖应用
+A vote and lottery App for Wechat
 =============
 
 ## About
